@@ -5,7 +5,6 @@ import dk.cs.aau.huppaal.HUPPAAL;
 import dk.cs.aau.huppaal.abstractions.*;
 import dk.cs.aau.huppaal.backend.*;
 import dk.cs.aau.huppaal.code_analysis.CodeAnalysis;
-import dk.cs.aau.huppaal.issues.Warning;
 import dk.cs.aau.huppaal.presentations.*;
 import dk.cs.aau.huppaal.utility.UndoRedoStack;
 import dk.cs.aau.huppaal.utility.colors.Color;
@@ -37,13 +36,11 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.WindowEvent;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import javafx.util.Pair;
 import org.kordamp.ikonli.javafx.FontIcon;
 
-import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -393,7 +390,7 @@ public class HUPPAALController implements Initializable {
         final CodeAnalysis.Message uppalNotFoundMessage = new CodeAnalysis.Message("Please set the UPPAAL server location through the 'Preferences' tab.\n" +
                 "Make sure to have UPPAAL installed. This can be done at uppaal.org", CodeAnalysis.MessageType.WARNING);
 
-        UPPAALDriverManager.getUppalFilePathProperty().addListener((observable, oldValue, newValue) -> {
+        UPPAALDriverManager.getUppaalFilePathProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue.equals("dummy")){
                 CodeAnalysis.addMessage(null, uppalNotFoundMessage);
             } else {

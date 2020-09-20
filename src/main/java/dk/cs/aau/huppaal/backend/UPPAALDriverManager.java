@@ -29,7 +29,7 @@ public final class UPPAALDriverManager {
         return instance;
     }
 
-    public static SimpleStringProperty getUppalFilePathProperty(){
+    public static SimpleStringProperty getUppaalFilePathProperty(){
         return uppaalFilePath;
     }
 
